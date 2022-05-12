@@ -1,0 +1,21 @@
+-- Table: public.FileManager
+
+-- DROP TABLE IF EXISTS public."FileManager";
+
+CREATE TABLE IF NOT EXISTS public."FileManager"
+(
+    "Id" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    "ParentId" integer,
+    "Icon" character varying(50) COLLATE pg_catalog."default",
+    "IsDirectory" boolean NOT NULL,
+    "Expanded" boolean,
+    "CreatedDate" date,
+    "UpdatedDate" date,
+    "Name" character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "FileManager_pkey" PRIMARY KEY ("Id")
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public."FileManager"
+    OWNER to postgres;
